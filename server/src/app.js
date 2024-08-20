@@ -19,4 +19,8 @@ app.get("/",(req, res) => {
     res.send("pp");
 })
 
+// routes
+import salesRoutes from "./routes/totalSalesOverTime.routes.js"
+app.use("/api/v1/sales", salesRoutes);
+
 export {app};   
