@@ -2,6 +2,7 @@
 // fetch to the shopify_order.total_price_set
 // make a controller for daily sales
 // make a controller for monthly sales
+// make a controller for quarter sales
 // make a controller for yearly sales
 
 import mongoose from "mongoose";
