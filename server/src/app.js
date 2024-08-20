@@ -19,8 +19,10 @@ app.get("/", (req, res) => {
 
 // routes
 import salesRoutes from "./routes/totalSalesOverTime.routes.js";
-import salesGrowthRate from "./routes/saleGrowthRate.routes.js";
+import salesGrowthRateRoutes from "./routes/saleGrowthRate.routes.js";
+import newCustormerRoutes from "./routes/newCustomersOverTime.routes.js";
 
 app.use("/api/v1/sales", salesRoutes);
-app.use("/api/v1/growthRate", salesGrowthRate);
+app.use("/api/v1/growthRate", salesGrowthRateRoutes);
+app.use("/api/v1/newCustomers", newCustormerRoutes)
 export { app };
