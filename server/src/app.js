@@ -23,10 +23,12 @@ import salesGrowthRateRoutes from "./routes/saleGrowthRate.routes.js";
 import newCustormerRoutes from "./routes/newCustomersOverTime.routes.js";
 import repeatcustomersRoutes from "./routes/noOfRepaetCustomer.routes.js";
 import customerDistributionByCityRoutes from "./routes/customerDistributionByCity.routes.js";
+import cltvByCohortsRoutes from "./routes/cltvByCohorts.routes.js";
 
 app.use("/api/v1/sales", salesRoutes);
 app.use("/api/v1/growthRate", salesGrowthRateRoutes);
 app.use("/api/v1/newCustomers", newCustormerRoutes);
 app.use("/api/v1/repeatCustomers", repeatcustomersRoutes);
 app.use("/api/v1/customerDistributionData", customerDistributionByCityRoutes);
+app.use("/api/v1/cltveByCohorts", cltvByCohortsRoutes);
 export { app };
