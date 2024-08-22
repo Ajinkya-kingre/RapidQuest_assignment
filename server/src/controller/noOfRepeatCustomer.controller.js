@@ -17,7 +17,7 @@ const repeatCustomersDaily = async (req, res) => {
           _id: {
             year: { $year: "$createdAtDate" },
             month: { $month: "$createdAtDate" },
-            day : {$dayOfMonth : "$createdAtDate"},
+            day: { $dayOfMonth: "$createdAtDate" },
             customerId: "$customer.id", // Group by customer ID along with year and month
           },
           orderCount: { $sum: 1 },
@@ -33,7 +33,7 @@ const repeatCustomersDaily = async (req, res) => {
           _id: {
             year: "$_id.year",
             month: "$_id.month",
-            day : "$_id_day",
+            day: "$_id_day",
           },
           repeatCustomers: { $sum: 1 }, // Count repeat customers per month
         },
@@ -42,7 +42,7 @@ const repeatCustomersDaily = async (req, res) => {
         $sort: {
           "_id.year": 1,
           "_id.month": 1,
-          "_id.day" : 1
+          "_id.day": 1,
         },
       },
     ];
@@ -52,7 +52,9 @@ const repeatCustomersDaily = async (req, res) => {
 
     // Check if data is found
     if (!repeatCustomers || repeatCustomers.length === 0) {
-      return res.status(404).json("No repeat customers data found for the month");
+      return res
+        .status(404)
+        .json("No repeat customers data found for the month");
     }
 
     // Return the result
@@ -112,7 +114,9 @@ const repeatCustomersMonthly = async (req, res) => {
 
     // Check if data is found
     if (!repeatCustomers || repeatCustomers.length === 0) {
-      return res.status(404).json("No repeat customers data found for the month");
+      return res
+        .status(404)
+        .json("No repeat customers data found for the month");
     }
 
     // Return the result
@@ -123,7 +127,7 @@ const repeatCustomersMonthly = async (req, res) => {
   }
 };
 
-const repeatCustomersQuater= async (req, res) => {
+const repeatCustomersQuaterly = async (req, res) => {
   try {
     // Connect to the database
     const db = mongoose.connection.useDb("RQ_Analytics");
@@ -139,7 +143,7 @@ const repeatCustomersQuater= async (req, res) => {
         $group: {
           _id: {
             year: { $year: "$createdAtDate" },
-            quater : {$ceil : { $divide: [{$month : "$createdAtDate"}, 3]}},
+            quater: { $ceil: { $divide: [{ $month: "$createdAtDate" }, 3] } },
             customerId: "$customer.id", // Group by customer ID along with year and month
           },
           orderCount: { $sum: 1 },
@@ -172,7 +176,9 @@ const repeatCustomersQuater= async (req, res) => {
 
     // Check if data is found
     if (!repeatCustomers || repeatCustomers.length === 0) {
-      return res.status(404).json("No repeat customers data found for the month");
+      return res
+        .status(404)
+        .json("No repeat customers data found for the month");
     }
 
     // Return the result
@@ -183,7 +189,7 @@ const repeatCustomersQuater= async (req, res) => {
   }
 };
 
-const repeatCustomersYear= async (req, res) => {
+const repeatCustomersYearly = async (req, res) => {
   try {
     // Connect to the database
     const db = mongoose.connection.useDb("RQ_Analytics");
@@ -229,7 +235,9 @@ const repeatCustomersYear= async (req, res) => {
 
     // Check if data is found
     if (!repeatCustomers || repeatCustomers.length === 0) {
-      return res.status(404).json("No repeat customers data found for the month");
+      return res
+        .status(404)
+        .json("No repeat customers data found for the month");
     }
 
     // Return the result
@@ -240,4 +248,9 @@ const repeatCustomersYear= async (req, res) => {
   }
 };
 
-export { repeatCustomersDaily, repeatCustomersMonthly, repeatCustomersQuater, repeatCustomersYear };
+export {
+  repeatCustomersDaily,
+  repeatCustomersMonthly,
+  repeatCustomersQuaterly,
+  repeatCustomersYearly,
+};
