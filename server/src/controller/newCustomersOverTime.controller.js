@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// TODO: Check every IF statement, there are consistancy issue
+
 const newCustomerDaily = async (req, res) => {
   try {
     // Fetch all documents from the "shopifyOrders" collection

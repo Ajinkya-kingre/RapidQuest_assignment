@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// TODO: Check every IF statement, there are consistancy issue
+
 const repeatCustomersDaily = async (req, res) => {
   try {
     // Connect to the database
