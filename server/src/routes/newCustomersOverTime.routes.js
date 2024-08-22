@@ -3,7 +3,7 @@ import {
   newCustomerDaily,
   newCustomerMonthly,
   newCustomerYearly,
-} from "../controller/newCustomersOverTime.js";
+} from "../controller/newCustomersOverTime.controller.js";
 
 const router = Router();
 

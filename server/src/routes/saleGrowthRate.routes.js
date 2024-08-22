@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { salesGrowthOverMonths, salesGrowthOveryears } from "../controller/salesGrowthRateOverTime.js";
+import { salesGrowthOverMonths, salesGrowthOveryears } from "../controller/salesGrowthRateOverTime.controller.js";
 
 
 const router = Router();
